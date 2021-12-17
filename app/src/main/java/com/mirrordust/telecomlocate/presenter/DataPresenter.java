@@ -263,6 +263,12 @@ public class DataPresenter implements DataContract.Presenter {
 
     @Override
     public void uploadDataSet(long index, String name, String desc) {
+        /*
+         * @param index 上传数据文件的序号
+         * @param name 上传数据文件名
+         * @param desc 数据文件排列升/降序，but我觉得这个是描述符
+         * @return void
+         */
         String url = mDataView.uploadUrl();
         String fileName = exportName(name, desc);
         File dir1 = new File(Environment.getExternalStoragePublicDirectory(
@@ -285,6 +291,7 @@ public class DataPresenter implements DataContract.Presenter {
         }
     }
 
+    // 目前感觉这个uploadAllDatasets是客户端并发上传的函数，hw2应该就是写这个函数吧
     public void uploadAllDatasets(){
         RealmResults<DataSet> dataSets=getDataSets();
         for(int i=0;i<dataSets.size();i++){

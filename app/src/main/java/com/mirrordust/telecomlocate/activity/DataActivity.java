@@ -138,14 +138,20 @@ public class DataActivity extends AppCompatActivity implements DataContract.View
     @Override
     public void checkUploaded(boolean exported, boolean uploaded,
                               long index, String name, String desc) {
-        if (!exported) {
+        if (!exported) { //没有导出，需要先导出
             Toast.makeText(this, "Export file first", Toast.LENGTH_LONG).show();
             return;
         }
-        if (uploaded) {
+        if (uploaded) { //已经上传，不再上传
             Toast.makeText(this, "Already uploaded", Toast.LENGTH_SHORT).show();
-        } else {
+        } else { //已导出、未上传，则开始上传
             mPresenter.uploadDataSet(index, name, desc);
+            /*
+             * @param index 上传数据文件的序号
+             * @param name 上传数据文件名
+             * @param desc 数据文件排列升/降序
+             * @return void
+             */
         }
     }
 

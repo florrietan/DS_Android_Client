@@ -2,8 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
 apply plugin: 'com.chaquo.python'
 
+
+
+
 android {
     compileSdkVersion 25
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
     defaultConfig {
         //applicationId "com.mirrordust.telecomlocate"
         applicationId "com.fruitbasket.audioplatform"
@@ -37,7 +43,7 @@ android {
         }
         python {
             // 指定python路径
-            buildPython "D:\\Programming\\Anaconda\\envs\\python36\\python.exe"
+            buildPython "/usr/bin/python3"
             pip{
                 install "pandas"
                 install "numpy"

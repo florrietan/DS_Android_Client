@@ -54,7 +54,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
         final DataSet dataSet = mDataSetList.get(position);
         holder.dataSetName.setText(dataSet.getName());
         holder.dataSetDesc.setText(Utils.dataSetDesc2String(dataSet.getDesc()));
-        if (dataSet.getIndex() == 0) {
+        if (dataSet.getIndex() == 0) {//没有数据文件夹
             holder.exported.setVisibility(View.GONE);
             holder.uploaded.setVisibility(View.GONE);
             holder.options.setVisibility(View.GONE);
